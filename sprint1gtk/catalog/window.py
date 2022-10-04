@@ -23,11 +23,11 @@ class MainWindow(Gtk.Window):
         scrolled.add(self.flowbox)
         self.add(scrolled)
 
-        cell_one =  Cell("Shaco", Gtk.Image.new_from_file("C:\\msys64\\home\\sergi\\desarrollo-de-interfaces\\sprint1gtk\\catalog\\data\\edited\\shaco_base.png"))
-        cell_two = Cell("Shaco enmascarado", Gtk.Image.new_from_file("C:\\msys64\\home\\sergi\\desarrollo-de-interfaces\\sprint1gtk\\catalog\\data\\edited\\shaco_masked.png"))
-        cell_three = Cell("Shaco estrella oscura", Gtk.Image.new_from_file("C:\\msys64\\home\\sergi\\desarrollo-de-interfaces\\sprint1gtk\\catalog\\data\\edited\\shaco_darkstar.png"))
-        cell_four = Cell("Shaco arcano", Gtk.Image.new_from_file("C:\\msys64\\home\\sergi\\desarrollo-de-interfaces\\sprint1gtk\\catalog\\data\\edited\\shaco_arcane.png"))
-        cell_five = Cell("Shaco pesadilla en la ciudad sin ley", Gtk.Image.new_from_file("C:\\msys64\\home\\sergi\\desarrollo-de-interfaces\\sprint1gtk\\catalog\\data\\edited\\shaco_crime_city_nightmare.png"))
+        cell_one =  Cell("Shaco", Gtk.Image.new_from_file("data/edited/shaco_base.png"))
+        cell_two = Cell("Shaco enmascarado", Gtk.Image.new_from_file("data/edited/shaco_masked.png"))
+        cell_three = Cell("Shaco estrella oscura", Gtk.Image.new_from_file("data/edited/shaco_darkstar.png"))
+        cell_four = Cell("Shaco arcano", Gtk.Image.new_from_file("data/edited/shaco_arcane.png"))
+        cell_five = Cell("Shaco pesadilla en la ciudad sin ley", Gtk.Image.new_from_file("data/edited/shaco_crime_city_nightmare.png"))
 
         self.flowbox.add(cell_one)
         self.flowbox.add(cell_two)
