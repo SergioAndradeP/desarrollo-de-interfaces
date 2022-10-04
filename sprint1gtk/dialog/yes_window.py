@@ -6,6 +6,6 @@ class YesWindow(Gtk.Window):
     label = Gtk.Label("Has pulsado si")
 
     def __init__(self):
-        super().__init__()
+        super().__init__(title="Yes")
         self.add(self.label)
 
