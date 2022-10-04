@@ -29,19 +29,19 @@ class MainWindow(Gtk.Window):
         image1.set_from_pixbuf(pixbuf)
 
         image2 = Gtk.Image()
-        pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale("data/unedited/shaco_masked.jfif", 300, 300, False)
+        pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale("data/unedited/shaco_masked.jfif", 200, 200, False)
         image2.set_from_pixbuf(pixbuf)
 
         image3 = Gtk.Image()
-        pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale("data/unedited/shaco_darkstar.jfif", 300, 300, False)
+        pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale("data/unedited/shaco_darkstar.jfif", 200, 200, False)
         image3.set_from_pixbuf(pixbuf)
 
         image4 = Gtk.Image()
-        pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale("data/unedited/shaco_arcane.jfif", 300, 300, False)
+        pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale("data/unedited/shaco_arcane.jfif", 200, 200, False)
         image4.set_from_pixbuf(pixbuf)
 
         image5 = Gtk.Image()
-        pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale("data/unedited/shaco_crime_city_nightmare.jfif", 300, 300, False)
+        pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale("data/unedited/shaco_crime_city_nightmare.jfif", 200, 200, False)
         image5.set_from_pixbuf(pixbuf)
 
         cell_one = Cell("Shaco", image1)
