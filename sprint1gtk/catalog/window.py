@@ -1,6 +1,7 @@
 import gi
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
+from gi.repository import GdkPixbuf
 from cell import Cell
 
 class MainWindow(Gtk.Window):
@@ -23,11 +24,31 @@ class MainWindow(Gtk.Window):
         scrolled.add(self.flowbox)
         self.add(scrolled)
 
-        cell_one =  Cell("Shaco", Gtk.Image.new_from_file("data/edited/shaco_base.png"))
-        cell_two = Cell("Shaco enmascarado", Gtk.Image.new_from_file("data/edited/shaco_masked.png"))
-        cell_three = Cell("Shaco estrella oscura", Gtk.Image.new_from_file("data/edited/shaco_darkstar.png"))
-        cell_four = Cell("Shaco arcano", Gtk.Image.new_from_file("data/edited/shaco_arcane.png"))
-        cell_five = Cell("Shaco pesadilla en la ciudad sin ley", Gtk.Image.new_from_file("data/edited/shaco_crime_city_nightmare.png"))
+        image1 = Gtk.Image()
+        pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale("data/unedited/shaco_base.jfif", 300, 300, False)
+        image1.set_from_pixbuf(pixbuf)
+
+        image2 = Gtk.Image()
+        pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale("data/unedited/shaco_masked.jfif", 300, 300, False)
+        image2.set_from_pixbuf(pixbuf)
+
+        image3 = Gtk.Image()
+        pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale("data/unedited/shaco_darkstar.jfif", 300, 300, False)
+        image3.set_from_pixbuf(pixbuf)
+
+        image4 = Gtk.Image()
+        pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale("data/unedited/shaco_arcane.jfif", 300, 300, False)
+        image4.set_from_pixbuf(pixbuf)
+
+        image5 = Gtk.Image()
+        pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale("data/unedited/shaco_crime_city_nightmare.jfif", 300, 300, False)
+        image5.set_from_pixbuf(pixbuf)
+
+        cell_one = Cell("Shaco", image1)
+        cell_two = Cell("Shaco enmascarado", image2)
+        cell_three = Cell("Shaco estrella oscura", image3)
+        cell_four = Cell("Shaco arcano", image4)
+        cell_five = Cell("Shaco pesadilla en la ciudad sin ley", image5)
 
         self.flowbox.add(cell_one)
         self.flowbox.add(cell_two)
