@@ -25,7 +25,7 @@ class MainWindow(Gtk.Window):
         self.add(scrolled)
 
         image1 = Gtk.Image()
-        pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale("data/unedited/shaco_base.jfif", 300, 300, False)
+        pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale("data/unedited/shaco_base.jfif", 200, 200, False)
         image1.set_from_pixbuf(pixbuf)
 
         image2 = Gtk.Image()
