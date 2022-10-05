@@ -10,3 +10,4 @@ class Detail(Gtk.Window):
         box.pack_start(image, False, False, 0)
         box.pack_start(Gtk.Label(label=description), True, True, 0)
         self.add(box)
+        self.connect("destroy", Gtk.main_quit)
