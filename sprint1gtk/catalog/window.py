@@ -55,5 +55,3 @@ class MainWindow(Gtk.Window):
         self.flowbox.add(cell_three)
         self.flowbox.add(cell_four)
         self.flowbox.add(cell_five)
-
-        self.connect("destroy",Gtk.main_quit)
