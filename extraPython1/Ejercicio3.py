@@ -1,5 +1,4 @@
 
-
 def isnum(a):
     try:
         int(a)
