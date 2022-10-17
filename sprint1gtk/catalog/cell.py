@@ -37,6 +37,7 @@ class Cell(Gtk.EventBox):
             self.descripcion = "La skin de Shaco arcano precio: 1350 Rp"
         elif self.name == "Shaco pesadilla en la ciudad sin ley":
             self.descripcion="La skin de Shaco pesadilla en la ciudad sin ley precio: 1350 Rp"
+
     def getImage(self):
         img = Gtk.Image()
         pixbuf = None
