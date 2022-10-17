@@ -1,32 +1,33 @@
-import gi
+import gi                           # Imports necesarios
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
 from detail_window import Detail
 from gi.repository import GdkPixbuf
 
-class Cell(Gtk.EventBox):
-    name = None
-    image = Gtk.Image()
+# Esta clase serán celdas que incluiremos en una FlowBox
+class Cell(Gtk.EventBox): # Herencia de EventBox necesaria para hacer que Cell sea como dicho elemento
+    name = None           # Variables de clase
+    image = Gtk.Image()   # Variable de clase tipo Imagen
     descripcion = None
 
-    def __init__(self, name, image):
-        super().__init__()
-        self.name = name
+    def __init__(self, name, image): # Hacemos que cell reciba los parámetros nombre e imagen
+        super().__init__()           # Llamada al constructor de la super clase para generar una ventana
+        self.name = name             # Igualamos dichos parámetros a las variables de clase
         self.image = image
-        box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=4)
-        box.pack_start(Gtk.Label(label=name), False, False, 0)
-        box.pack_start(image, True, True, 0)
-        self.add(box)
-        self.connect("button-release-event", self.on_click)
+        box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=4) # Generamos una box vertical
+        box.pack_start(Gtk.Label(label=name), False, False, 0) # Insertamos en la box una label que contiene el texto de la variable de clase "name"
+        box.pack_start(image, True, True, 0)  # Insertamos la imagen en la box
+        self.add(box) # Añadimos la box a la ventana generada
+        self.connect("button-release-event", self.on_click) # Conectamos la acción de clickar y soltar el botón con las imagenes
 
-    def on_click(self, widget, event):
-        self.image = self.getImage()
-        self.asignar_desripcion()
-        win = Detail(self.name, self.image, self.descripcion)
-        win.show_all()
-        Gtk.main()
+    def on_click(self, widget, event): # Función on_click conectada que se llama mediante click en las imagenes
+        self.image = self.getImage() # Igualamos la variable de clase image a una imagen devuelta por la función getImage()
+        self.asignar_desripcion() # Llamada a la funcion asignar_descripcion() lo cual asigna la descripcion a description
+        win = Detail(self.name, self.image, self.descripcion) # Generamos una detail window pasándole los parámetros necesarios
+        win.show_all() # Mostramos la ventana
+        Gtk.main()   # Dejamos que la ventana se mantenga abierta mediante esta función
 
-    def asignar_desripcion(self):
+    def asignar_desripcion(self): # Función que asigna un String a la variable de clase desciption en función del nombre de la imagen
         if self.name=="Shaco":
             self.descripcion="La skin por defecto de Shaco"
         elif self.name=="Shaco enmascarado":
@@ -38,7 +39,7 @@ class Cell(Gtk.EventBox):
         elif self.name == "Shaco pesadilla en la ciudad sin ley":
             self.descripcion="La skin de Shaco pesadilla en la ciudad sin ley precio: 1350 Rp"
 
-    def getImage(self):
+    def getImage(self): # Función que devuelve la imagen correspondiente en función del nombre de la imagen haciendo uso del GdkPixbuf
         img = Gtk.Image()
         pixbuf = None
         if self.name == "Shaco":
