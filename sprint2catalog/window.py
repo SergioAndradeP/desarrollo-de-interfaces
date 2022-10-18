@@ -9,7 +9,7 @@ from cell import Cell
 class MainWindow(Gtk.Window): #Herencia de Window
     flowbox = Gtk.FlowBox() # Generamos una FlowBox como variable de clase
 
-    def __init__(self):
+    def __init__(self, data_soruce):
         super().__init__(title="Catalogo") # Generamos una ventana con el texto catálogo mediante llamada al constructor de la super clase
         self.connect("destroy", Gtk.main_quit) # Conectamos el evento destruir con clickar en cerrar la ventana
         self.set_border_width(15) # Ajustamos ancho del borde
@@ -32,30 +32,6 @@ class MainWindow(Gtk.Window): #Herencia de Window
 
         # Procedemos a hacer lo mismo para todas las imagenes
 
-        image2 = Gtk.Image()
-        pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale("data/unedited/shaco_masked.jfif", 200, 200, False)
-        image2.set_from_pixbuf(pixbuf)
-
-        image3 = Gtk.Image()
-        pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale("data/unedited/shaco_darkstar.jfif", 200, 200, False)
-        image3.set_from_pixbuf(pixbuf)
-
-        image4 = Gtk.Image()
-        pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale("data/unedited/shaco_arcane.jfif", 200, 200, False)
-        image4.set_from_pixbuf(pixbuf)
-
-        image5 = Gtk.Image()
-        pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale("data/unedited/shaco_crime_city_nightmare.jfif", 200, 200, False)
-        image5.set_from_pixbuf(pixbuf)
-
-        cell_one = Cell("Shaco", image1)  # Generamos las 5 celdas cada una con sus parámetros correspondientes
-        cell_two = Cell("Shaco enmascarado", image2)
-        cell_three = Cell("Shaco estrella oscura", image3)
-        cell_four = Cell("Shaco arcano", image4)
-        cell_five = Cell("Shaco pesadilla en la ciudad sin ley", image5)
-
-        self.flowbox.add(cell_one)  # Añadimos todas nuestras celdas a la FlowBox
-        self.flowbox.add(cell_two)
-        self.flowbox.add(cell_three)
-        self.flowbox.add(cell_four)
-        self.flowbox.add(cell_five)
+        for item in data_soruce:
+            cell = Cell(item.get("name"), item.get("image_url"))
+            self.add(cell)
