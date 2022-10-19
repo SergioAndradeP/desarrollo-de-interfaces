@@ -28,7 +28,5 @@ class MainWindow(Gtk.Window): #Herencia de Window
 
 
         for item in data_source:
-            print(item.get("name"))
-            print(item.get("image_url"))
-            cell = Cell(item.get("name"), item.get("gtk_image"))
+            cell = Cell(item.get("name"), item.get("gtk_image"), item.get("description"))
             self.flowbox.add(cell)
