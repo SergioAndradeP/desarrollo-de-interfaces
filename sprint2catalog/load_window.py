@@ -28,7 +28,7 @@ class LoadWindow(Gtk.Window):
         thread.start()
 
     def load_json(self):
-        response = requests.get("https://github.com/SergioAndradeP/desarrollo-de-interfaces/blob/master/API-REST/catalog.json")
+        response = requests.get("https://raw.githubusercontent.com/SergioAndradeP/desarrollo-de-interfaces/master/API-REST/catalog.json")
         json_list = response.json()
 
         result = []

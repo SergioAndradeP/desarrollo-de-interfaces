@@ -9,7 +9,7 @@ from cell import Cell
 class MainWindow(Gtk.Window): #Herencia de Window
     flowbox = Gtk.FlowBox() # Generamos una FlowBox como variable de clase
 
-    def __init__(self, data_soruce):
+    def __init__(self, data_source):
         super().__init__(title="Catalogo") # Generamos una ventana con el texto catálogo mediante llamada al constructor de la super clase
         self.connect("destroy", Gtk.main_quit) # Conectamos el evento destruir con clickar en cerrar la ventana
         self.set_border_width(15) # Ajustamos ancho del borde
@@ -26,12 +26,9 @@ class MainWindow(Gtk.Window): #Herencia de Window
         scrolled.add(self.flowbox) # Añadimos a la ScrolledWindow nuestra FlowBox
         self.add(scrolled) # Añadimos a la ventana la ScrolledWindow que ya contiene la FlowBox dentro
 
-        image1 = Gtk.Image() # Generamos una imagen
-        pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale("data/unedited/shaco_base.jfif", 200, 200, False) # Usamos pixbuf para ajustar el tamaño
-        image1.set_from_pixbuf(pixbuf) # Asignamos la imagen ya modificada mediante el pixbuf a nuestra variable imagen
 
-        # Procedemos a hacer lo mismo para todas las imagenes
-
-        for item in data_soruce:
-            cell = Cell(item.get("name"), item.get("image_url"))
-            self.add(cell)
+        for item in data_source:
+            print(item.get("name"))
+            print(item.get("image_url"))
+            cell = Cell(item.get("name"), item.get("gtk_image"))
+            self.flowbox.add(cell)
