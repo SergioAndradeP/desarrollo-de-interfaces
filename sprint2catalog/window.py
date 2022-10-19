@@ -11,9 +11,11 @@ class MainWindow(Gtk.Window): #Herencia de Window
 
     def __init__(self, data_source):
         super().__init__(title="Catalogo") # Generamos una ventana con el texto catálogo mediante llamada al constructor de la super clase
+        self.set_position(Gtk.WindowPosition.CENTER)
         self.connect("destroy", Gtk.main_quit) # Conectamos el evento destruir con clickar en cerrar la ventana
         self.set_border_width(15) # Ajustamos ancho del borde
-        self.set_default_size(400, 400) # Definimos tamaño por defecto
+        self.set_default_size(800, 800) # Definimos tamaño por defecto
+
 
         header = Gtk.HeaderBar(title="Imagenes") # Añadimos un header
         header.set_subtitle("Colección") # Añadimos un subtítulo
@@ -25,7 +27,6 @@ class MainWindow(Gtk.Window): #Herencia de Window
         scrolled.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC)
         scrolled.add(self.flowbox) # Añadimos a la ScrolledWindow nuestra FlowBox
         self.add(scrolled) # Añadimos a la ventana la ScrolledWindow que ya contiene la FlowBox dentro
-
 
         for item in data_source:
             cell = Cell(item.get("name"), item.get("gtk_image"), item.get("description"))
