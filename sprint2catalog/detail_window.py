@@ -7,8 +7,8 @@ class Detail(Gtk.Window):  # Herencia de Window
 
     def __init__(self, title, image, description):
         super().__init__(title=title) # Generamos una ventana con un título recibido como parámetro mediante una llamada al constructor de la super clase
-        self.set_default_size(500, 500)
-        self.set_position(Gtk.WindowPosition.CENTER)
+        self.set_default_size(500, 500) # Ponemos el tamaño por defecto de la ventana Detail
+        self.set_position(Gtk.WindowPosition.CENTER) # Ajustamos la posición por defecto
         box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL) # Creamos una box de orientación vertical
         box.pack_start(image, False, False, 0) # Incluimos la imagen en la box
         box.pack_start(Gtk.Label(label=description), True, True, 0) # Incluimos en la box una label cuyo texto será el parámetro description

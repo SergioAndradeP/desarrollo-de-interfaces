@@ -20,10 +20,10 @@ class Cell(Gtk.EventBox): # Herencia de EventBox necesaria para hacer que Cell s
         self.add(box) # Añadimos la box a la ventana generada
         self.connect("button-release-event", self.on_click) # Conectamos la acción de clickar y soltar el botón con las imagenes
 
-    def on_click(self, widget, event):
-        im = Gtk.Image()
-        im.set_from_pixbuf(self.image.get_pixbuf())
-        win = Detail(self.name, im, self.description)
-        win.show_all()
-        Gtk.main()
+    def on_click(self, widget, event): # Función que se ejecuta al hacer click en cada elemento celda
+        im = Gtk.Image() # Generamos una imagen Gtk
+        im.set_from_pixbuf(self.image.get_pixbuf()) # Hacemos que esa imagen gtk sea una copia de la imagen Gtk que ya tiene la celda recogiendo el pixbuf de esa imagen inicial y creando esta imagen a partir de dicho pixbuf
+        win = Detail(self.name, im, self.description) # Generamos una instancia de detail window
+        win.show_all() # Mostramos todos los elementos de la ventana
+        Gtk.main() # Hacemos que la ventana se siga mostrando quedando en un estado de espera mediante esta función
 
