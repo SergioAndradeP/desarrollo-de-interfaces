@@ -49,9 +49,9 @@ class MainWindow(Gtk.Window): #Herencia de Window
 
     def click(self, event): # Función que se activa al hacer click en la opción de "Ayuda" y dentro de ayuda en "Acerca de"
         win = Gtk.Window(title = "Sobre el desarrollador") # Generamos una ventana con título
+        self.set_position(Gtk.WindowPosition.CENTER)  # Ajustamos la posición por defecto
         box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL) # Generamos una box que almacenará una label (aunque técnicamente no haría falta ya que solo va a haber un elemento label en la ventana, pero por claridad)
         label = Gtk.Label("SAMPLE TEXT") # Generamos una label con el texto
         box.pack_start(label, True, True, 0) # Añadimos la label a la box
         win.add(box) # Añadimos la box a la ventana
         win.show_all() # Mostramos todos los elementos de la ventana
-        Gtk.main() # Función que hace que la ventana se quede abierta
