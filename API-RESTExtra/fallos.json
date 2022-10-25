@@ -1,22 +1,22 @@
 [
   {
     "fallos": 1,
-    "image_url": ""
+    "image_url": "https://raw.githubusercontent.com/SergioAndradeP/desarrollo-de-interfaces/master/API-RESTExtra/1.png"
   },
   {
     "fallos": 2,
-    "image_url": ""
+    "image_url": "https://raw.githubusercontent.com/SergioAndradeP/desarrollo-de-interfaces/master/API-RESTExtra/2.png"
   },
   {
     "fallos": 3,
-    "image_url": ""
+    "image_url": "https://raw.githubusercontent.com/SergioAndradeP/desarrollo-de-interfaces/master/API-RESTExtra/3.png"
   },
   {
     "fallos": 4,
-    "image_url": ""
+    "image_url": "https://raw.githubusercontent.com/SergioAndradeP/desarrollo-de-interfaces/master/API-RESTExtra/4.png"
   },
   {
     "fallos": 5,
-    "image_url": ""
+    "image_url": "https://raw.githubusercontent.com/SergioAndradeP/desarrollo-de-interfaces/master/API-RESTExtra/5.png"
   }
 ]
