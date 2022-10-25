@@ -30,20 +30,19 @@ class LoadWindow(Gtk.Window): # Herencia de LoadWindow al elemento Window de Gtk
         thread.start()
 
     def load_json(self):  # Función que se encarga de recuperar la información almacenada en un JSON mediante una petición GET
-        response = requests.get("https://raw.githubusercontent.com/SergioAndradeP/desarrollo-de-interfaces/master/API-REST/catalog.json") # Dirección a la que se envía la petición GET
+        response = requests.get("https://raw.githubusercontent.com/SergioAndradeP/desarrollo-de-interfaces/master/API-RESTExtra/fallos.json") # Dirección a la que se envía la petición GET
         json_list = response.json() # Almacenamos la respuesta que será un array JSON
 
         result = [] # Generamos una lista llamada result
 
         for json_item in json_list:  # Bucle que va recogiendo la información del array json con la respuesta
-            name = json_item.get("name") # y la va almacenando en la lista result además de convertir
-            description = json_item.get("description") # Las urls de la imagen en elementos imagen Gtk y almacenarlos
+            fallos = json_item.get("fallos") # y la va almacenando en la lista result además de convertir
             image_url = json_item.get("image_url") # también en la lista
             r = requests.get(image_url, stream=True)
             with open ("temp.png", "wb") as f:
                 shutil.copyfileobj(r.raw, f)
             image = Gtk.Image.new_from_file("temp.png")
-            result.append({"name": name, "description": description, "gtk_image": image})
+            result.append({"fallos": fallos, "gtk_image": image})
 
         GLib.idle_add(self.start_main_window, result) # Pasamos al hilo principal y ejecutamos la función start_main_window
 
