@@ -4,6 +4,17 @@ from gi.repository import Gtk
 from random import randrange
 
 class MainWindow(Gtk.Window): #Herencia de Window
+    list = ["CASA", "CAMION", "GATO", "ESTERNOCLEIDOMASTOIDEO", "FRUTA", "HIDROGENO", "ORDENADOR"]
+    palabra = list[randrange(len(list))]
+    labelString = ""
+    letra = ""
+    fallos = 0
+    box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+    label = Gtk.Label()
+    entry = Gtk.Entry()
+    img = Gtk.Image()
+    button = Gtk.Button("Intro")
+
     def __init__(self, data_source):
         super().__init__(title="Ahorcado") # Generamos una ventana con el texto catálogo mediante llamada al constructor de la super clase
         self.set_position(Gtk.WindowPosition.CENTER) # Centramos la ventana al centro una vez se genere
@@ -13,51 +24,109 @@ class MainWindow(Gtk.Window): #Herencia de Window
         self.data_source=data_source
         self.juego()
 
-
-
-
-    def click(self, event): # Función que se activa al hacer click en la opción de "Ayuda" y dentro de ayuda en "Acerca de"
-       pass
-
-    def getFallos(self, data_source):
-        for item in data_source: # Esta clase recibe el elemento data source en el que previamente hemos almacenado la información de la petición GET mandada a la url
-           # cell = Cell(item.get("name"), item.get("gtk_image"), item.get("description")) # Mediante un bucle for generamos tantas celdas como items en data_source con sus respectivos parámetros
-            pass
-        pass
-
     def juego(self):
-        list = ["CASA", "CAMION", "GATO", "ESTERNOCLEIDOMASTOIDEO", "FRUTA", "HIDROGENO", "ORDENADOR"]
-        palabra = list[randrange(len(list))]
-        fallos=0
-        label = self.generarGuiones(palabra)
-        entry = Gtk.Entry()
-        while fallos < 5:
-            box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
-            label = Gtk.Label(label=label)
-            img = self.generarImagen(fallos)
-            box.pack_start(label, False, False, 0)
-            box.pack_start(img, False, False, 0)
-            box.pack_start(entry, False, False, 0)
-            self.add(box)
-            fallos = fallos + 1
-        pass
+        self.entry.set_max_length(1)
+        self.labelString = self.generarGuiones(self.palabra)
+        self.label = Gtk.Label(label=self.labelString)
+        self.img = self.generarImagen()
+        self.button.connect("clicked", self.on_click)
+        self.box.pack_start(self.label, False, False, 0)
+        self.box.pack_start(self.img, False, False, 50)
+        self.box.pack_start(self.entry, False, False, 0)
+        self.box.pack_start(self.button, False, False, 0)
+        self.add(self.box)
+
+    def on_click(self, event):
+        self.letra = self.entry.get_text().upper()
+        if not self.existeLetra():
+            self.fallos = self.fallos + 1
+        self.modifyWindow()
+        if self.fallos == 5:
+            EtiquetaP = Gtk.Label(label="PERDISTE")
+            self.remove(self.box)
+            self.box.remove(self.label)
+            self.box.remove(self.img)
+            self.box.remove(self.entry)
+            self.box.remove(self.button)
+
+            self.box.pack_start(self.label, False, False, 0)
+            self.box.pack_start(self.img, False, False, 50)
+            self.box.pack_start(EtiquetaP, False, False, 0)
+            self.add(self.box)
+
+        else:
+            if self.labelString == self.palabra:
+                EtiquetaG = Gtk.Label(label="GANASTE")
+                self.remove(self.box)
+                self.box.remove(self.label)
+                self.box.remove(self.img)
+                self.box.remove(self.entry)
+                self.box.remove(self.button)
+
+                self.box.pack_start(self.label, False, False, 0)
+                self.box.pack_start(self.img, False, False, 50)
+                self.box.pack_start(EtiquetaG, False, False, 0)
+                self.add(self.box)
+
+    def modifyWindow(self):
+        self.remove(self.box)
+        self.box.remove(self.label)
+        self.box.remove(self.img)
+        self.box.remove(self.entry)
+        self.box.remove(self.button)
+
+        self.labelString = self.calcularNewLabel()
+        self.label.set_label(self.labelString)
+        self.img.set_from_pixbuf(self.generarImagen().get_pixbuf())
+        self.box.pack_start(self.label, False, False, 0)
+        self.box.pack_start(self.img, False, False, 50)
+        self.box.pack_start(self.entry, False, False, 0)
+        self.box.pack_start(self.button, False, False, 0)
+        self.add(self.box)
+
+    def calcularNewLabel(self):
+        aux = ""
+        i = 0
+        if not self.letraYaJugada():
+            for item in self.palabra:
+                if self.letra == item:
+                    aux = aux + self.letra
+                else:
+                    aux = aux + self.labelString[i]
+                i = i + 1
+        else:
+            aux = self.labelString
+
+        return aux
+
+    def existeLetra(self):
+        existe = False
+        for item in self.palabra:
+            if self.letra == item:
+                existe = True
+                break
+        return existe
+
+    def letraYaJugada(self):
+        jugada = False
+        for item in self.labelString:
+            if item == self.letra:
+                jugada = True
+        return jugada
 
     def generarGuiones(self, palabra):
         i = 0
         guiones=""
         while i < len(palabra):
-            guiones = guiones + " ____ "
+            guiones = guiones + "_"
             i = i + 1
         return guiones
 
-    def generarImagen(self, fallos):
+    def generarImagen(self):
         img = Gtk.Image()
         for item in self.data_source:
-            if item.get("fallos")==fallos:
+            if item.get("fallos") == self.fallos:
                 img = item.get("gtk_image")
         return img
 
-    def coincide(self, palabra):
-        for item in palabra:
-            pass
 
