@@ -42,7 +42,7 @@ class MainWindow(Gtk.Window): #Herencia de Window
             self.fallos = self.fallos + 1
         self.modifyWindow()
         if self.fallos == 5:
-            EtiquetaP = Gtk.Label(label="PERDISTE")
+            etiquetaP = Gtk.Label(label="PERDISTE")
             self.remove(self.box)
             self.box.remove(self.label)
             self.box.remove(self.img)
@@ -51,12 +51,12 @@ class MainWindow(Gtk.Window): #Herencia de Window
 
             self.box.pack_start(self.label, False, False, 0)
             self.box.pack_start(self.img, False, False, 50)
-            self.box.pack_start(EtiquetaP, False, False, 0)
+            self.box.pack_start(etiquetaP, False, False, 0)
             self.add(self.box)
 
         else:
             if self.labelString == self.palabra:
-                EtiquetaG = Gtk.Label(label="GANASTE")
+                etiquetaG = Gtk.Label(label="GANASTE")
                 self.remove(self.box)
                 self.box.remove(self.label)
                 self.box.remove(self.img)
@@ -65,7 +65,7 @@ class MainWindow(Gtk.Window): #Herencia de Window
 
                 self.box.pack_start(self.label, False, False, 0)
                 self.box.pack_start(self.img, False, False, 50)
-                self.box.pack_start(EtiquetaG, False, False, 0)
+                self.box.pack_start(etiquetaG, False, False, 0)
                 self.add(self.box)
 
     def modifyWindow(self):
