@@ -5,12 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
     <androidx.drawerlayout.widget.DrawerLayout
         android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:openDrawer="end">
+        tools:openDrawer="start">
         <com.google.android.material.navigation.NavigationView
             android:id="@+id/navigator_layout"
             android:layout_width="match_parent"
@@ -26,14 +25,12 @@
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar_id"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:background="@color/teal_700"
-                android:minHeight="@attr/actionBarSize"
-                app:title="Navigator Drawer">
+                android:minHeight="?attr/actionBarSize"
+                app:title="Navigator Drawer"
+                app:navigationIcon="@drawable/ic_launcher_background">
             </androidx.appcompat.widget.Toolbar>
         </RelativeLayout>
     </androidx.drawerlayout.widget.DrawerLayout>
-
-    
-
 </androidx.constraintlayout.widget.ConstraintLayout>
