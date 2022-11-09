@@ -10,7 +10,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class CatalogActivity extends AppCompatActivity {
-
     private Button button;
     private Context context = this;
 
