@@ -13,11 +13,11 @@ import android.widget.Button;
 
 public class CatalogFragment extends Fragment {
     private Button button;
-    private Context context = getContext();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_catalog, container, false);
+        Context context = view.getContext();
         button = view.findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override

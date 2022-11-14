@@ -54,10 +54,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId()){
             case R.id.catalog:
+                drawerLayout.close();
                 Fragment fragmentCatalog = new CatalogFragment();
                 getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, fragmentCatalog).commit();
                 break;
             case R.id.about:
+                drawerLayout.close();
                 Fragment fragmentAbout = new AboutFragment();
                 getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, fragmentAbout).commit();
                 break;
