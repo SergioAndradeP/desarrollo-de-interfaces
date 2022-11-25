@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        this.queue = Volley.newRequestQueue(context);
         this.recyclerView = findViewById(R.id.recycler_view);
         this.progressBar = findViewById(R.id.barra);
         progressBar.setVisibility(View.VISIBLE);
@@ -52,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
         );
+        this.queue = Volley.newRequestQueue(context);
         this.queue.add(request);
     }
 
