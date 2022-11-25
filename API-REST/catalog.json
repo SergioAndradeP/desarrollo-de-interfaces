@@ -23,5 +23,30 @@
     "name": "Shaco pesadilla en la ciudad sin ley",
     "description": "La skin de Shaco pesadilla en la ciudad sin ley precio: 1350 Rp",
     "image_url": "https://raw.githubusercontent.com/SergioAndradeP/desarrollo-de-interfaces/master/API-REST/shaco_crime_city_nightmare.png"
+  },
+  {
+    "name": "Shaco",
+    "description": "La skin por defecto de Shaco",
+    "image_url": "https://raw.githubusercontent.com/SergioAndradeP/desarrollo-de-interfaces/master/API-REST/shaco_base.png"
+  },
+  {
+    "name": "Shaco enmascarado",
+    "description": "La skin de Shaco enmascarado precio: 975 Rp",
+    "image_url": "https://raw.githubusercontent.com/SergioAndradeP/desarrollo-de-interfaces/master/API-REST/shaco_masked.png"
+  },
+  {
+    "name": "Shaco estrella oscura",
+    "description": "La skin de Shaco estrella oscura precio: 1350 Rp",
+    "image_url": "https://raw.githubusercontent.com/SergioAndradeP/desarrollo-de-interfaces/master/API-REST/shaco_darkstar.png"
+  },
+  {
+    "name": "Shaco arcano",
+    "description": "La skin de Shaco arcano precio: 1350 Rp",
+    "image_url": "https://raw.githubusercontent.com/SergioAndradeP/desarrollo-de-interfaces/master/API-REST/shaco_arcane.png"
+  },
+  {
+    "name": "Shaco pesadilla en la ciudad sin ley",
+    "description": "La skin de Shaco pesadilla en la ciudad sin ley precio: 1350 Rp",
+    "image_url": "https://raw.githubusercontent.com/SergioAndradeP/desarrollo-de-interfaces/master/API-REST/shaco_crime_city_nightmare.png"
   }
 ]
